@@ -1,4 +1,5 @@
 (function blink(){
+    typeWriter()
     $('.blink_me').fadeOut(500).fadeIn(1000, blink);
 })();
 $('#start_show').click(function(){
@@ -31,7 +32,7 @@ var messages = [
     '"i just want to be with you"',
     '"i know i am not perfect"',
     '"i say stupid things to you"',
-    '"but pull that all aside"',
+    '"but put that all aside"',
     '"and you will never find someone who cares or loves you more than me"',
     '"i promise to support you in whatever you do"',
     '"i will always be by your side"',
@@ -65,5 +66,5 @@ function typeWriter() {
   }	
 }
 
-typeWriter()
+
 
