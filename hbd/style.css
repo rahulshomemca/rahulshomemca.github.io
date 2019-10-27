@@ -1,0 +1,28 @@
+.before-body { 
+    background-color: #66adff; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.after-body { 
+    background: url(media/birthday-cake-candles-112787.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    overflow: auto;
+}
+
+#text-msg{
+    position: absolute; 
+    bottom: 200px;
+    text-align: center;
+}
+
+#msg {
+    font-family: 'Margarine', cursive;
+    font-size: 50px;
+}
