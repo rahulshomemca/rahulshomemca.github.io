@@ -32,7 +32,7 @@ var messages = [
     '"i know i am not perfect"',
     '"i say stupid things to you"',
     '"but pull that all aside"',
-    '"and you will never find someone who \n cares or loves you more than me"',
+    '"and you will never find someone who cares or loves you more than me"',
     '"i promise to support you in whatever you do"',
     '"i will always be by your side"',
     '"i am so glad i met you"',
