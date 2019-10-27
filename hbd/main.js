@@ -17,7 +17,7 @@ $('#start_show').click(function(){
 
 var messages = [
     'Happy Birthday Sweta!',
-    'Many many happy returns of the day',
+    '"many many happy returns of the day"',
     '"i just wanted to let you know"',
     '"how much you mean to me"',
     '"and how lucky i am to have you in my life"',
@@ -48,6 +48,22 @@ function show(){
 }
 
 
+var i = 0;
+var txt = 'Happy Birthday!';
+var speed = 150;
 
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("hbd").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+  else{
+      i=0;
+      document.getElementById("hbd").innerHTML = ''
+      typeWriter();
+  }	
+}
 
+typeWriter()
 
