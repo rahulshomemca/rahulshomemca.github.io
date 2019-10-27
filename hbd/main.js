@@ -1,5 +1,4 @@
 (function blink(){
-    typeWriter()
     $('.blink_me').fadeOut(500).fadeIn(1000, blink);
 })();
 $('#start_show').click(function(){
@@ -66,5 +65,6 @@ function typeWriter() {
   }	
 }
 
+typeWriter()
 
 
