@@ -49,7 +49,7 @@ function show(){
 
 
 var i = 0;
-var txt = 'Happy Birthday!';
+var txt = 'Happy Birthday Sweta!';
 var speed = 150;
 
 function typeWriter() {
