@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart Office Automation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    client = new Paho.MQTT.Client("broker.hivemq.com", 8000,"rahulshome");
+
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
+    var options = {
+      useSSL: false,
+      onSuccess:onConnect,
+      onFailure:doFail
+    }
+
+    client.connect(options);
+    function onConnect() {
+      console.log("Connected");
+      message = new Paho.MQTT.Message("Hi from js");
+      message.destinationName = "tesahgcavdjhhcffchgfqa4657687821977gvjavdjavjgdt";
+      client.send(message);
+    }
+    
+    function doFail(e){
+      console.log(e);
+      client.connect(options);
+    }
+  
+    function onConnectionLost(responseObject) {
+      if (responseObject.errorCode !== 0) {
+        console.log("onConnectionLost:"+responseObject.errorMessage);
+      }
+    }
+  
+    function onMessageArrived(message) {
+      console.log("onMessageArrived:"+message.payloadString);
+    }
+
+  </script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Smart Office Automation</h1>
+  <p>MQTT BROKER</p> 
+</div>
+  
+<div class="container text-center">
+  <button id="ledBtn" class="btn btn-success btn-lg">LED ON</button>
+  <p class="text-info" style="margin-top: 20px;" id="notification"></p>
+</div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('#ledBtn').click(function(){
+    var text = $('#ledBtn').html()
+    if(text == 'LED OFF'){
+      operation("0")
+      $('#ledBtn').html('LED ON')
+      $('#ledBtn').removeClass('btn-danger')
+      $('#ledBtn').addClass('btn-success')
+      $('#notification').html('Light is off')
+    }
+    else
+    {
+      operation("1")
+      $('#ledBtn').html('LED OFF')
+      $('#ledBtn').removeClass('btn-success')
+      $('#ledBtn').addClass('btn-danger')
+      $('#notification').html('Light is on')
+    }
+  })
+})
+
+function operation(state){
+  message = new Paho.MQTT.Message(state);
+  message.destinationName = "tesahgcavdjhhcffchgfqa4657687821977gvjavdjavjgdt";
+  client.send(message);
+}
+</script>
+</body>
+</html>
